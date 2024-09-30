@@ -1,0 +1,33 @@
+# NOTE: you can use vars with $<var> and ${<var>} as long as the str is double quoted: ""
+# WARNING: hex colors can't contain capital letters
+
+# --> Rose-Pine (Main)
+thm_bg="#191724"
+thm_fg="#e0def4"
+
+#thm_cyan="#ebbcba"
+#thm_blue="#ebbcba"
+thm_rose="#ebbcba"
+
+#thm_black="#191724"
+thm_base="#191724"
+
+#thm_gray="#26233a"
+thm_overlay="#26233a"
+
+#thm_magenta="#c4a7e7"
+thm_iris="#c4a7e7"
+
+#thm_yellow="#f6c177"
+#thm_pink="#f6c177"
+thm_gold="#f6c177"
+
+#thm_red="#eb6f92"
+thm_love="#eb6f92"
+
+#thm_green="#9ccfd8"
+thm_foam="#9ccfd8"
+
+
+#thm_orange="#31748f"
+thm_pine="#31748f"
