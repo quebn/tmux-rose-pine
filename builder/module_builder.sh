@@ -18,7 +18,6 @@ build_status_module() {
     fi
 
     local show_left_separator="#[fg=$color,bg=$bg,nobold,nounderscore,noitalics]$status_left_separator"
-    local show_middle_separator="#[fg=$color,bg=$thm_gray,nobold,nounderscore,noitalics]$status_middle_separator"
     local show_right_separator="#[fg=$thm_gray,bg=$bg,nobold,nounderscore,noitalics]$status_right_separator"
   fi
 
@@ -41,9 +40,5 @@ build_status_module() {
     local show_left_separator="#[fg=$color,bg=default,nobold,nounderscore,noitalics]$status_left_separator"
   fi
 
-  if [ -z "$icon" ] ; then
-    show_icon=""
-  fi
-
-  echo "$show_left_separator$show_icon$show_middle_separator$show_text$show_right_separator"
+  echo "$show_left_separator$show_icon$show_text$show_right_separator"
 }

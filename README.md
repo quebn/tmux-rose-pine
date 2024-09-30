@@ -55,8 +55,7 @@ If you do not have a patched font installed, you can override or remove any icon
 2. Add the Catppuccin plugin:
 
 ```bash
-set -g @plugin 'catppuccin/tmux#latest' # See https://github.com/catppuccin/tmux/tags for additional tags
-# set -g @plugin 'catppuccin/tmux' # main branch
+set -g @plugin 'catppuccin/tmux'
 # ...alongside
 set -g @plugin 'tmux-plugins/tpm'
 ```
@@ -64,7 +63,7 @@ set -g @plugin 'tmux-plugins/tpm'
 3. (Optional) Set your preferred flavor, it defaults to `"mocha"`:
 
 ```bash
-set -g @catppuccin_flavor 'mocha' # latte,frappe, macchiato or mocha
+set -g @catppuccin_flavour 'mocha' # latte,frappe, macchiato or mocha
 ```
 
 ### Manual
@@ -85,15 +84,8 @@ This is a diagram of how the theme is split between its components.
 ## Configuration options
 
 All flavors support certain levels of customization that match our [Catppuccin
-Style Guide][style-guide]. To add these customizations, you may add any of the
-following options to your Tmux configuration.
-
-If you want to set a text-based customization to an emtpy string, use `null` to
-do so. For instance:
-
-```sh
-set -g @catppuccin_icon_window_last "null"
-```
+Style Guide][style-guide]. To add these customizations, add any of the following
+options to your Tmux configuration.
 
 ### Window
 
@@ -127,12 +119,19 @@ Values:
 
 #### Enable window status:
 ```sh
-set -g @catppuccin_window_status "no"
+set -g @catppuccin_window_status_enable "no"
 ```
 Values:
+- yes - this will enable the window status part
 - no - this will disable the window status part
-- icon - this will replace the windows status text with icons
-- text - this will keep the windows status in text format
+
+#### Enable window status icons instead of text:
+```sh
+set -g @catppuccin_window_status_icon_enable "yes"
+```
+Values:
+- yes - this will replace the windows status text with icons
+- no - this will keep the windows status in text format
 
 #### Override windows status icons
 ```sh
@@ -196,12 +195,6 @@ Values:
 set -g @catppuccin_window_current_text "#{b:pane_current_path}" # use "#W" for application instead of directory
 ```
 
-#### Override the window current separators
-```sh
-set -g @catppuccin_window_current_left_separator ""
-set -g @catppuccin_window_current_middle_separator "█"
-set -g @catppuccin_window_current_right_separator ""
-```
 ### Pane
 
 #### Set the pane border style:
@@ -262,12 +255,6 @@ tmux kill-server & tmux
 set -g @catppuccin_status_left_separator ""
 ```
 
-#### Set the status module middle separator:
-
-```sh
-set -g @catppuccin_status_middle_separator "null"
-```
-
 #### Set the status module right separator:
 ```sh
 set -g @catppuccin_status_right_separator "█"
@@ -320,7 +307,7 @@ set -g @catppuccin_pane_background_color "#{thm_orange}"
 #### Set the module list
 ```sh
 set -g @catppuccin_status_modules_right "application session"
-set -g @catppuccin_status_modules_left "null"
+set -g @catppuccin_status_modules_left ""
 ```
 Provide a list of modules and the order in which you want them to appear in the status.
 
@@ -351,6 +338,16 @@ set -g @catppuccin_[module_name]_color "color"
 #### Override the specific module text
 ```sh
 set -g @catppuccin_[module_name]_text "text"
+```
+
+#### Removing a specific module option
+```sh
+set -g @catppuccin_[module_name]_[option] "null"
+```
+This is for the situation where you want to remove the icon from a module.
+Ex:
+```sh
+set -g @catppuccin_date_time_icon "null"
 ```
 
 ### Battery module
